@@ -1,0 +1,10 @@
+<% unless @sub_category.errors.any? %>
+  var new_sub_category = $("<%= j render @sub_category %>").hide();
+  $('#sub_categories').append(new_sub_category);
+  $('#sub_category_<%= @sub_category.id %>').fadeIn('slow');
+<% else %>
+  <% @sub_category.errors.full_messages.each do |message| %>
+    $.growl.error({ message: "<%= message %>" });
+  <% end %>
+<% end %>
+$('#new_sub_category')[0].reset();

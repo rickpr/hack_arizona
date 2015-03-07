@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :votes
+
   get 'home/index'
 
   resources :posts

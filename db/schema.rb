@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307104355) do
+ActiveRecord::Schema.define(version: 20150307111250) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20150307104355) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.integer  "vote_id"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+  add_index "posts", ["vote_id"], name: "index_posts_on_vote_id"
 
   create_table "sub_categories", force: :cascade do |t|
     t.string   "name"
@@ -60,5 +62,16 @@ ActiveRecord::Schema.define(version: 20150307104355) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.boolean  "helpful"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "votes", ["post_id"], name: "index_votes_on_post_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

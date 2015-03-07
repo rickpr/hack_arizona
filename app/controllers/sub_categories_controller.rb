@@ -31,6 +31,7 @@ class SubCategoriesController < ApplicationController
       if @sub_category.save
         format.html { redirect_to [@category, @sub_category], notice: 'Sub category was successfully created.' }
         format.json { render :show, status: :created, location: @sub_category }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @sub_category.errors, status: :unprocessable_entity }
