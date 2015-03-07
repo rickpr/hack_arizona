@@ -4,7 +4,14 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.rank :row_order
+  end
+
+  def update_row_order
+    @category = Category.find category_params[:category_id]
+    @category.row_order_position = category_params[:row_order_position]
+    @category.save
+    render nothing: true
   end
 
   # GET /categories/1
@@ -69,6 +76,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(:category_id, :name, :description, :row_order_position)
     end
 end

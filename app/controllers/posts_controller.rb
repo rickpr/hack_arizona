@@ -38,6 +38,7 @@ class PostsController < ApplicationController
   end
 
   # PATCH/PUT /posts/1
+  # m
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
@@ -69,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:nickname, :body, :upvotes, :downvotes)
+      params.require(:post).permit(:nickname, :body, :upvotes, :downvotes, :category_id)
     end
 end

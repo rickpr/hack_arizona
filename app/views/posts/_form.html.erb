@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= bootstrap_form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,23 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nickname %><br>
     <%= f.text_field :nickname %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
     <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :upvotes %><br>
     <%= f.number_field :upvotes %>
-  </div>
-  <div class="field">
-    <%= f.label :downvotes %><br>
     <%= f.number_field :downvotes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.select :category_id, Category.rank(:row_order).map { |c| [c.name, c.id] } %>
+    <%= f.primary %>
 <% end %>

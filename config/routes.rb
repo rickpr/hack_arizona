@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :sub_categories
+    post :update_row_order, on: :collection
   end
 
   devise_for :users
