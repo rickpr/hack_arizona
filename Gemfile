@@ -49,3 +49,7 @@ gem 'less-rails'
 gem 'devise'
 
 gem 'bootstrap_form'
+
+gem 'pry-rails'
+
+gem 'public_activity'
