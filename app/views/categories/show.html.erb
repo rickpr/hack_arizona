@@ -8,6 +8,21 @@
   <strong>Description:</strong>
   <%= @category.description %>
 </p>
+<div class = "col-xs-4">
+  <div class = "row">
+<%= bootstrap_form_for([@category,SubCategory.new]) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.primary %>
+<% end %>
+  </div>
+</div>
+
+<table class = "table table-striped">
+  <thead></thead>
+  <tbody>
+<%= render @category.sub_categories %>
+</tbody>
+</table>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
