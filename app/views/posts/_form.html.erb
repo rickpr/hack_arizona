@@ -13,8 +13,6 @@
 
     <%= f.text_field :nickname %>
     <%= f.text_area :body %>
-    <%= f.number_field :upvotes %>
-    <%= f.number_field :downvotes %>
     <%= f.select :category_id, Category.rank(:row_order).map { |c| [c.name, c.id] } %>
     <%= f.primary %>
 <% end %>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :votes
 
   get 'home/index'
 
-  resources :posts
+  resources :posts do
+    resources :votes
+  end
 
   resources :categories do
     resources :sub_categories

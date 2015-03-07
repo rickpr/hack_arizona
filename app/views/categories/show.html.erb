@@ -16,13 +16,13 @@
 <% end %>
   </div>
 </div>
-
 <table class = "table table-striped">
-  <thead></thead>
+<thead>
+<th>Subcategory</th>
+</thead>
   <tbody id="sub_categories">
 <%= render @category.sub_categories %>
 </tbody>
 </table>
-
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

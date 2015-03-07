@@ -1,0 +1,11 @@
+<%= div_for post, class: 'panel panel-primary' do %>
+  <div class = "panel-heading clearfix"><%= post.nickname %>
+    <div class="btn-group pull-right">
+      <a href="#" class="btn btn-default btn-sm">&uarr;<%= post.upvotes %></a>
+      <a href="#" class="btn btn-default btn-sm">&darr;<%= post.downvotes %></a>
+    </div>
+  </div>
+  <div class = "panel-body">
+    <%= post.body %>
+  </div>
+<% end %>
