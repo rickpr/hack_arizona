@@ -14,6 +14,8 @@
         <%= f.submit "&darr;#{downvotes}".html_safe, class: 'btn btn-default btn-sm' %>
       <% end %>
     </div>
-
+  </div>
+  <div class = "panel-footer">
+    Category: <%= post.category.name %><%= ", " + post.sub_category.name if post.sub_category %>
   </div>
 <% end %>

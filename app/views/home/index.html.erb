@@ -1,8 +1,11 @@
-<div style="display: none;">
-  <% Category.all.each do |category| %>
-    <%= select_tag :sub_category, options_for_select(category.sub_categories.map { |s| [s.name, s.id] }) %>
+<div class = "panel panel-primary">
+  <div class = "panel-heading">Post something!</div>
+  <div class = "panel-body">
+    <%= render 'form' %>
+  </div>
+</div>
+<div id = "posts">
+  <% Post.all.reverse.each do |post| %>
+    <%= render "post", post: post %>
   <% end %>
 </div>
-<% Post.all.each do |post| %>
-  <%= render "post", post: post %>
-<% end %>

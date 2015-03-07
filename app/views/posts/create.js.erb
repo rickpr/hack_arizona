@@ -1,0 +1,4 @@
+var new_post = $("<%= j render('home/post', post: @post) %>").hide();
+$('#posts').prepend(new_post);
+$('#post_<%= @post.id %>').fadeIn('slow');
+$('form').reset();
