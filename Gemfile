@@ -47,3 +47,5 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
 gem 'devise'
+
+gem 'bootstrap_form'
