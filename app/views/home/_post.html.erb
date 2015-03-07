@@ -5,11 +5,11 @@
     <%= post.body %>
    <% upvotes,downvotes = post.upvotes, post.downvotes %>
    <div class="btn-group pull-right">
-      <%= form_for [post, post.votes.new], html: { class: 'form-inline' } do  |f| %>
+      <%= form_for [post, post.votes.new], html: { class: 'form-inline' }, remote: true do  |f| %>
         <%= f.hidden_field :helpful, value: "1" %>
         <%= f.submit "&uarr;#{upvotes}".html_safe, class: 'btn btn-default btn-sm' %>
       <% end %>
-      <%= form_for [post, post.votes.new], html: { class: 'form-inline' } do  |f| %>
+      <%= form_for [post, post.votes.new], html: { class: 'form-inline' }, remote: true do  |f| %>
         <%= f.hidden_field :helpful, value: "0" %>
         <%= f.submit "&darr;#{downvotes}".html_safe, class: 'btn btn-default btn-sm' %>
       <% end %>
