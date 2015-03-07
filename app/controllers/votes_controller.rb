@@ -1,10 +1,11 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  before_action :set_post
 
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
+    @votes = @post.votes.all
   end
 
   # GET /votes/1
@@ -24,8 +25,8 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = current_user.votes.new(vote_params)
-
+    @vote = @post.votes.new(vote_params)
+    @vote.user = current_user
     respond_to do |format|
       if @vote.save
         format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
@@ -65,6 +66,10 @@ class VotesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vote
       @vote = Vote.find(params[:id])
+    end
+
+    def set_post
+      @post = Post.find params[:post_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
