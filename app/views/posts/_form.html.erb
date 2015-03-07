@@ -1,3 +1,16 @@
+<div style="display: none;">
+  <% Category.all.each do |category| %>
+    <%= select_tag :sub_category, options_for_select(category.sub_categories.map { |s| [s.name, s.id] }), id: "sub_category#{category.id}" %>
+  <% end %>
+</div>
+<script type="text/javascript">
+  function populatesubs(category)
+  {
+    subcategory = '#sub_category' + category
+    $('#post_sub_category_id').html($(subcategory).html());
+  }
+</script>
+
 <%= bootstrap_form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -13,6 +26,7 @@
 
     <%= f.text_field :nickname %>
     <%= f.text_area :body %>
-    <%= f.select :category_id, Category.rank(:row_order).map { |c| [c.name, c.id] } %>
+    <%= f.select :category_id, Category.rank(:row_order).map { |c| [c.name, c.id] }, {}, onchange: "populatesubs(this.value);" %>
+    <%= f.select :sub_category_id, Category.all.first.sub_categories.map { |s| [s.name, s.id] } %>
     <%= f.primary %>
 <% end %>
