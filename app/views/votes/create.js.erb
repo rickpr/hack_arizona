@@ -1,0 +1,11 @@
+<% if @vote.helpful %>
+  var updown = 0;
+  var arrow = '↑';
+  <% votes = @post.upvotes %>
+<% else %>
+  var updown = 1;
+  var arrow = '↓';
+  <% votes = @post.downvotes %>
+<% end %>
+$('#post_<%= @post.id %> input.btn')[updown].value = arrow + <%= votes %>;
+
