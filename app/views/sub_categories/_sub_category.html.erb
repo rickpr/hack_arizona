@@ -1,4 +1,4 @@
 <tr id="sub_category_<%= sub_category.id %>">
-  <td><%= sub_category.name %></td>
+  <td><%= link_to sub_category.name, category_sub_category_path(@category, sub_category) %></td>
   <td><%= link_to '<i class="fa fa-trash-o"></i> Remove'.html_safe, [@category, sub_category], method: :delete, data: { confirm:'Are you sure?' }, class: 'badge alert-danger' %></td>
 </tr>

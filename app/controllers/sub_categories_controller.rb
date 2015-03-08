@@ -67,6 +67,7 @@ class SubCategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_sub_category
+      set_category
       @sub_category = @category.sub_categories.find(params[:id])
     end
 
