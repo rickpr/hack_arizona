@@ -63,13 +63,17 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-          <div class="well sidebar-nav">
+          <div class="tree well sidebar-nav">
            <%= image_tag 'logo.png', width: '100%' %>
            &nbsp;
            <%= image_tag 'cat.png', width: '100%' %>
             <ul class="nav nav-list">
               <% Category.all.each do |category| %>
-                <li><%= link_to category.name, category_path(category) %></li>
+                <li><span><%= link_to category.name, category_path(category) %></span>
+                <% category.sub_categories.each do |sub_category| %>
+                  <ul><li><span><%= link_to sub_category.name, category_sub_category_path(category, sub_category) %></span></li></ul>
+                <% end %>
+                </li>
               <% end %>
             </ul>
           </div><!--/.well -->

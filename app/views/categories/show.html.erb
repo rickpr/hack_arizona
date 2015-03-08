@@ -1,21 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @category.name %>
-</p>
-<p>
-  <strong>Description:</strong>
+</h1>
+<h2>
   <%= @category.description %>
-</p>
-<div class = "col-xs-4">
-  <div class = "row">
-<%= bootstrap_form_for [@category,SubCategory.new], remote: true do |f| %>
-    <%= f.text_field :name %>
-    <%= f.primary %>
-<% end %>
-  </div>
-</div>
+</h2>
 <table class = "table table-striped">
 <thead>
 <th>Subcategory</th>
@@ -24,5 +14,22 @@
 <%= render @category.sub_categories %>
 </tbody>
 </table>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+<% @category.posts.each do |post| %>
+  <%= render 'home/post', post: post %>
+<% end %>
+
+  <div class = "row">
+<div class = "col-xs-4">
+<%= bootstrap_form_for [@category,SubCategory.new], remote: true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.primary %>
+<% end %>
+  </div>
+</div>
+<br>
+<div class = "row">
+  <div class = "col-xs-4">
+    <%= link_to 'Done', categories_path, class: 'btn btn-success' %>
+  </div>
+</div>

@@ -5,7 +5,7 @@ class SubCategoriesController < ApplicationController
   # GET /sub_categories
   # GET /sub_categories.json
   def index
-    @sub_categories = SubCategory.all
+    @sub_categories = @category.sub_categories
   end
 
   # GET /sub_categories/1
@@ -67,7 +67,6 @@ class SubCategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_sub_category
-      set_category
       @sub_category = @category.sub_categories.find(params[:id])
     end
 
