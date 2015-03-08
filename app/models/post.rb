@@ -20,13 +20,13 @@ class Post < ActiveRecord::Base
       z = 1
     elsif x == 0
       y = 0
-      z = 0
+      z = x 
     else
       y = 1
-      z = 1
+      z = x
     end
-    t = created_at - InitialTime
-    Math.log(z) + (y*t) / 45000
+    t = (created_at - InitialTime)
+    Math.log(z.to_f) + (y.to_f*t) / 45000
   end
 
 end

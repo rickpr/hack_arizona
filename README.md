@@ -2,6 +2,13 @@
 
 Nothing really to see here. It's yet another Web app.
 
+## Our Hackers:
+
+- Ricardo Piro-Rael
+- Chastity Laskey
+- Jacob Parker
+- Jesse Alvarado
+
 ## Arizona Colors
 
 ### Major Colors

@@ -16,6 +16,6 @@
     </div>
   </div>
   <div class = "panel-footer">
-    Category: <%= post.category.name %><%= ", " + post.sub_category.name if post.sub_category %>
+    Category: <%= post.category.name  if post.category %><%= ", " + post.sub_category.name if post.sub_category %>
   </div>
 <% end %>
